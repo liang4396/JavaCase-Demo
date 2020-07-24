@@ -11,6 +11,8 @@
     <modules>
         <module>volatile-demo</module>
         <module>cas-demo</module>
+        <module>list-safe</module>
+        <module>lock-demo</module>
     </modules>
 
     <name>Maven</name>

@@ -13,6 +13,7 @@
         <module>cas-demo</module>
         <module>list-safe</module>
         <module>lock-demo</module>
+        <module>blocking-queue</module>
     </modules>
 
     <name>Maven</name>

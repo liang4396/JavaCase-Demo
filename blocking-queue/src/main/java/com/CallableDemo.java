@@ -17,9 +17,16 @@ public class CallableDemo {
         ExecutorService executor = Executors.newFixedThreadPool(10);// 创建一个线程池，数量和开启线程的数量一样
         List<Future<String>> futureList = new ArrayList<Future<String>>();
         for (int i = 0; i < 10; i++) {
+
+/*          TODO 不使用线程池创建线程：
+            FutureTask<String> future = new FutureTask<>(new MyCallable(i));
+            new Thread(future).start();
+            futureList.add(future);*/
+            //TODO 使用线程池创建线程：
             Future<String> future = executor.submit(new MyCallable(i));
             futureList.add(future);
-/*            try {
+/*          TODO 堵塞式的体现：
+            try {
                 String s = executor.submit(new MyCallable(i)).get();
                 System.out.println(s);
             } catch (InterruptedException e) {
@@ -53,7 +60,8 @@ class MyCallable implements Callable<String> {
 
     @Override
     public String call() throws Exception {
-        int time = 10 - number;
+        /*int time = 10 - number;*/
+        int time =  number;
         Thread.sleep(1000 * time);
         return "休息了" + time + "秒 number:" + number;
     }
